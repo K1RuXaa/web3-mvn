@@ -16,6 +16,8 @@ public class DotBean implements Serializable {
     private Double y;
     private Double r;
 
+
+
     public void setX(Double x) {
         this.x = x;
     }
