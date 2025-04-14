@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-antrun-" default="main">
+  <target name="main">
+    <echo message=" Validating XML files in src/..." />
+    <xmlvalidate failonerror="true" lenient="true">
+      <fileset dir="C:\Users\Kirill\IdeaProjects\laba3">
+        <include name="**/*.xml" />
+      </fileset>
+    </xmlvalidate>
+  </target>
+</project>

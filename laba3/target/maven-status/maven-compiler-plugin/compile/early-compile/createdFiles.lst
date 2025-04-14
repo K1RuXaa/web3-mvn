@@ -1,0 +1,8 @@
+org\example\demo\DatabaseUtil.class
+org\example\demo\CommaToDotDoubleConverter.class
+org\example\demo\RangeValidator.class
+org\example\demo\Result.class
+org\example\demo\DotBean.class
+org\example\demo\WorkDataBase.class
+org\example\demo\ClockBean.class
+org\example\demo\Native2AsciiConverter.class

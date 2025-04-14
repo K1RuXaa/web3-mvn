@@ -1,0 +1,193 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #b3d9ff; /* Голубой фон */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e6f2ff; /* Светло-голубой фон для контейнера */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+#formSubmit {
+    margin-bottom: 20px;
+}
+
+.panelGroupInline {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background: rgb(178,226,245);
+    background: linear-gradient(90deg, rgba(178,226,245,1) 29%, rgba(130,179,237,1) 55%, rgba(113,243,229,1) 100%);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.panelGroupInline .ui-outputText {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Стили для радиокнопок */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4a84f1;
+    background-color: #d6eaf8;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+input[type="radio"]:checked {
+    background-color: #4a84f1;
+    border-color: #2c3e50;
+}
+
+.ui-selectOneRadio label {
+    font-size: 16px;
+    color: #2c3e50;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* Стили для текстового поля Y */
+.ui-inputText {
+    padding: 10px;
+    border: 2px solid #4a84f1;
+    border-radius: 4px;
+    width: 80px;
+    font-size: 16px;
+    text-align: center;
+    transition: border-color 0.3s;
+    background-color: #d6eaf8;
+}
+
+.ui-inputText:focus {
+    border-color: #2c3e50;
+    outline: none;
+}
+
+/* Стили для canvas (графика) */
+#graph {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #b3d9ff; /* Голубой фон */
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для кнопки Submit */
+.ui-commandButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.ui-commandButton:hover {
+    background-color: #2980b9;
+}
+
+/* Стили для таблицы */
+#resultsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#resultsTable th, #resultsTable td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+#resultsTable th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+#resultsTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#resultsTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Стили для сообщений об ошибках */
+.ui-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.ui-message.ui-message-closable {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+/* Стили для fieldset */
+.ui-fieldset {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #d6eaf8;
+}
+
+.ui-fieldset legend {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 0 10px;
+}
+
+.ui-commandButton {
+    transition: background-color 0.3s ease;
+}
+
+.panelGroupInline, .ui-fieldset, #graph {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+#back {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+#back:hover {
+    background-color: #2980b9;
+}
