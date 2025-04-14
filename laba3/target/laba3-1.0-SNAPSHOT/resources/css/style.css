@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(33,27,100);
+    background: linear-gradient(90deg, rgba(33,27,100,1) 29%, rgba(14,119,141,1) 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+}
+
+#header h1, #header h2 {
+    color: white;
+}
+
+#time-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px 50px; /* Увеличил ширину контейнера */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    font-size: 1.5em; /* Увеличил размер шрифта */
+}
+
+#time {
+    color: white;
+    letter-spacing: 2px; /* Раздвинул символы для лучшей читаемости */
+}
+
+#link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-top: 15px;
+}
+
+#link:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}

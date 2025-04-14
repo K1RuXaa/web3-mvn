@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:outputStylesheet name="index-style.css" library="css"/>
+
+    <h:outputScript name="drawGraph.js" library="js"/>
+</h:head>
+<h:form id="formGraph">
+    <h:inputHidden id="x" value="#{dotBean.x}" />
+    <h:inputHidden id="y" value="#{dotBean.y}" />
+    <h:inputHidden id="r" value="#{dotBean.r}" />
+    <p:remoteCommand name="submitGraphData" process="formGraph" update="resultsTable resultsScriptPanel" oncomplete="drawGraphic()"
+                     actionListener="#{workDataBase.addResult(dotBean)}"/>
+</h:form>
+<h:body>
+    <f:view>
+        <p:outputPanel id="resultsScriptPanel" autoUpdate="true">
+            <h:outputScript escape="false">
+                var results = #{workDataBase.getResultsAsJson()};
+                console.log("Results updated:", results);
+            </h:outputScript>
+        </p:outputPanel>
+
+        <span>
+            <canvas id="graph" width="400" height="400"></canvas>
+        </span>
+
+
+        <div>
+            <p:fieldset>
+            <h:form id="formSubmit">
+                <h:panelGroup styleClass="panelGroupInline">
+                    <h:outputText value="Введите х: "/>
+                    <h:selectOneRadio id="xValue" value="#{dotBean.x}" layout="pageDirection" required="true">
+                        <f:selectItem itemValue="-3" itemLabel="-3" />
+                        <f:selectItem itemValue="-2" itemLabel="-2" />
+                        <f:selectItem itemValue="-1" itemLabel="-1" />
+                        <f:selectItem itemValue="0" itemLabel="0" />
+                        <f:selectItem itemValue="1" itemLabel="1" />
+                        <f:selectItem itemValue="2" itemLabel="2" />
+                        <f:selectItem itemValue="3" itemLabel="3" />
+                    </h:selectOneRadio>
+                    <h:message for="xValue" style="color: red;" />
+                </h:panelGroup>
+
+                <h:panelGroup styleClass="panelGroupInline">
+                    <h:outputText value="Введите у: "/>
+                    <h:inputText id="Y" value="#{dotBean.y}" converter="commaToDotDoubleConverter"
+                                 style="width: 50px;" maxlength="5">
+
+                        <f:validateDoubleRange minimum="-5" maximum="3"/>
+                        <f:validator validatorId="rangeValidator"/>
+                        <p:ajax event="blur" execute="@this" update="YMessage"/>
+                    </h:inputText>                    </h:panelGroup>
+                <p:message id="YMessage" for="Y" closable="true" />
+                <h:panelGroup styleClass="panelGroupInline">
+                    <h:outputText value="R: "/>
+                    <p:spinner id="R_spinner" min="1" max="3" value="#{dotBean.r}" stepFactor="0.5">
+                        <p:ajax event="change" oncomplete="handleSpinnerChange()" />
+                    </p:spinner>
+                </h:panelGroup>
+
+                <p:commandButton id="Submit" value="Подтвердить" process="@this xValue Y R_spinner"  update="resultsScriptPanel resultsTable"  oncomplete="updateSubmit()"/>
+            </h:form>
+        </p:fieldset>
+        </div>
+        <br/>
+        <h:link id = "back" value="Вернуться на стартовую страницу" outcome="main" />
+        <h:dataTable id="resultsTable" value="#{workDataBase.getResults()}" var="o"
+                     styleClass="order-table"
+                     headerClass="order-table-header"
+                     rowClasses="order-table-odd-row,order-table-even-row"
+        >
+
+            <h:outputScript escape="false">
+                var res = #{workDataBase.getResult()};
+                console.log("Res updated:", res);
+            </h:outputScript>
+
+            <h:column>
+                <f:facet name="header">X</f:facet>
+                #{o.x}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Y</f:facet>
+                #{o.y}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">R</f:facet>
+                #{o.r}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Попадание</f:facet>
+                #{o.hit ? "попал" : "не попал"}
+            </h:column>
+
+        </h:dataTable>
+
+    </f:view>
+</h:body>
+
+</html>
