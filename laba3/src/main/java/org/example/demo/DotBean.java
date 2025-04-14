@@ -18,6 +18,8 @@ public class DotBean implements Serializable {
 
 
 
+
+
     public void setX(Double x) {
         this.x = x;
     }
