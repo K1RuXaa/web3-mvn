@@ -14,6 +14,8 @@ public class CommaToDotDoubleConverter implements Converter<Double> {
             return null;
         }
 
+
+
         if (!value.matches("[\\d.,-]+")) {
             return null;
         }
