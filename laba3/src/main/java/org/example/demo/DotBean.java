@@ -12,6 +12,7 @@ import java.io.Serializable;
 @SessionScoped
 public class DotBean implements Serializable {
 
+
     private Double x = 0.0;
     private Double y;
     private Double r;
